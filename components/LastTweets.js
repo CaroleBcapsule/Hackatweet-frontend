@@ -6,27 +6,9 @@ import { faTrashCan, faHeart, faUserAstronaut} from '@fortawesome/free-solid-svg
 
 function LastTweets(props) {
 
-    //récupération des tweets de tous les utilisateurs
-
-    const [allTweets, setAllTweets] = useState(0);
-useEffect(() => {
-    if (!user.token) {
-        return;
-    }
-        fetch(`http://localhost:3000/tweets/${user.token}`)
-          .then(response => response.json())
-          .then(data => {
-            setAllTweets(data.tweets);
-          });
-      }, []);
-
-
-
-
-    
   
   return (
-    <div className={styles.container}>
+    
       <div className={styles.tweetContainer}>
         <div>
         <span><FontAwesomeIcon icon={faUserAstronaut} className="avatar"/></span>
@@ -40,7 +22,7 @@ useEffect(() => {
           <span><FontAwesomeIcon icon={faTrashCan} onClick={() => handleWatchMovie()} style={trashIconStyle} className="trash" /></span>
         </div>
       </div>
-    </div>
+    
   );
 }
 
