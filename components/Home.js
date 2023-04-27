@@ -1,4 +1,6 @@
 import styles from "../styles/Home.module.css";
+//import styles from "../styles/Login.module.css";
+import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserAstronaut, faTwitter } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
@@ -29,26 +31,27 @@ function Home() {
   });
 
   return (
-    <div classname={styles.homeContainer}>
-      <div>
-        <FontAwesomeIcon icon={faTwitter} className={styles.iconTwitter} />
-        <FontAwesomeIcon
-          icon={faUserAstronaut}
-          className={styles.iconAstronaut}
-        />
+    <div>
+    <div className={styles.homeContainer}>
+      <div className={styles.leftElement}>
+        <FontAwesomeIcon icon={faTwitter} className={styles.iconTwitter}/>
+        <FontAwesomeIcon icon={faUserAstronaut} className={styles.iconAstronaut}/>
         <span>gauche</span>
         <button>logout</button>
       </div>
 
-      <div>
-        <div>composant tweet</div>
-        <div className={styles.lastTweetscontainer}>composant lastTweets</div>
+      <div className={styles.centerElement}>
+        <div className={styles.tweetsContainer}>composant tweet</div>
+        <div className={styles.lastTweetsContainer}>composant lastTweets</div>
       </div>
 
-      <div>
-        <div>Composant trends</div>
+      <div className={styles.rightElement}>
+        <div className={styles.trendsContainer} >Composant trends</div>
       </div>
-    </div>
+      
+      </div>
+      </div>
+    
   );
 }
 
