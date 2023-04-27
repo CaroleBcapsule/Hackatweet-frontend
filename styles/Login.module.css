@@ -7,7 +7,34 @@
   width: 100vw;
 
   display: flex;
+  justify-content: center;
 }
 
 .logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  size: 60%;
+}
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.buttonSignUp {
+  color: white;
+  background-color: rgb(1, 92, 171);
+  width: 13vw;
+  height: 5vh;
+  border: transparent;
+  border-radius: 5px;
+}
+
+.buttonSignIn {
+  color: rgb(1, 92, 171);
+  background-color: transparent;
+  border: solid 1px white;
+  width: 13vw;
+  height: 5vh;
+  border-radius: 5px;
 }
