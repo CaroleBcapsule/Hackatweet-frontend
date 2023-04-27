@@ -1,5 +1,6 @@
-//import styles from '../styles/Home.module.css';
-import Head from 'next/head';
+import styles from '../styles/Home.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUserAstronaut, faTwitter } from '@fortawesome/free-solid-svg-icons';
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import LastTweets from './LastTweets';
@@ -13,9 +14,9 @@ function Home() {
    const [allTweets, setAllTweets] = useState([]);
 
    useEffect(() => {
-      //  if (!user.token) {
-      //      return;
-      //  }
+       if (!user.token) {
+           return;
+       }
            fetch(`http://localhost:3000/tweets/${user.token}`)
              .then(response => response.json())
              .then(data => {
@@ -29,17 +30,35 @@ function Home() {
 
 
   return (
-    <div>
-      <Head>
-        <title>Hackatweet - Home</title>
-      </Head>
-      <div>composant tweet</div>
-      <div>
-      <div className={styles.container}>
-        {tousTweets}
+    
+      <div classname={styles.homeContainer}>
+
+
+        <div>
+          <FontAwesomeIcon icon={faTwitter} className={styles.iconTwitter} />
+          <FontAwesomeIcon icon={faUserAstronaut} className={styles.iconAstronaut} />
+          <span>gauche</span>
+          <button>logout</button>
+
         </div>
+
+     
+      <div >
+        <div>composant tweet</div>
+        <div className={styles.lastTweetscontainer}>composant lastTweets</div>
       </div>
-    </div>
+  
+      <div> 
+      <div>Composant trends</div>
+      </div>
+      
+
+
+     </div>
+    
+      
+     
+      
   );
 }
 
