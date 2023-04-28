@@ -16,15 +16,20 @@ function Home() {
   const [allTweets, setAllTweets] = useState([]);
 
   useEffect(() => {
-    if (!user.token) {
-      return;
-    }
-    fetch(`http://localhost:3000/tweets/${user.token}`)
+    // if (!user.token) {
+      
+    //   return;
+    // }
+    fetch(`http://localhost:3000/tweets/tweets/${user.token}`)
       .then((response) => response.json())
-      .then((data) => {
-        setAllTweets(allTweets);
+      .then(data => {
+        console.log(data)
+        setAllTweets(data.allTweets);
       });
   }, []);
+
+ 
+
 
   const tousTweets = allTweets.map((data, i) => {
     return <LastTweets key={i} {...data} />;
@@ -33,7 +38,7 @@ function Home() {
   // suppression d'un tweet par l'utilisateur
   //const [deleteTweet, setDeleteTweet] = useState([]);
   // useEffect(() => {
-  //   fetch(`http://localhost:3000/deleteTweet/${user.token}/${_id}`)
+  //   fetch(`http://localhost:3000/tweets/deleteTweet/${user.token}/${_id}`)
   //     .then((response) => response.json())
   //     .then((data) => {
   //       setDeleteTweet(deleteTweet);
@@ -50,10 +55,7 @@ function Home() {
             alt="logo Twitter"
           />
           <div className={styles.logoutContainer}>
-            <FontAwesomeIcon
-              icon={faUserAstronaut}
-              className={styles.iconAstronaut}
-            />
+            <FontAwesomeIcon icon={faUserAstronaut} className={styles.iconAstronaut}/>
             <span>username</span>
             <button>logout</button>
           </div>

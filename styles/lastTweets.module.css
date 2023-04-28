@@ -1,7 +1,9 @@
 .tweetContainer {
     display: flex;
+    flex-direction: column;
+    
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   border-bottom: 1px solid #b6b6b6;
   padding: 15px;
     border: 1px solid white;
@@ -9,5 +11,12 @@
 
 .iconsContainer {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    
+}
+
+
+.tweetInfo {
+  display: flex;
+  flex-direction: row;
 }
