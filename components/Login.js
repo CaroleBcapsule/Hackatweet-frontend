@@ -54,6 +54,7 @@ function Login() {
               open={isModalOpenSignUp}
               onOk={handleOkSignUp}
               onCancel={handleCancelSignUp}
+              footer={null}
             >
               <SignUp />
             </Modal>
@@ -74,6 +75,7 @@ function Login() {
                 open={isModalOpenSignIn}
                 onOk={handleOkSignIn}
                 onCancel={handleCancelSignIn}
+                footer={null}
               >
                 <SignIn />
               </Modal>

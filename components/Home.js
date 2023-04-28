@@ -30,7 +30,6 @@ function Home() {
     return <LastTweets key={i} {...data} />;
   });
 
-
   // suppression d'un tweet par l'utilisateur
   //const [deleteTweet, setDeleteTweet] = useState([]);
   // useEffect(() => {
@@ -40,8 +39,6 @@ function Home() {
   //       setDeleteTweet(deleteTweet);
   //     });
   // }, []);
-
-  
 
   return (
     <div>
