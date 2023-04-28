@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import LastTweets from "./LastTweets";
-//import Tweets from './Tweets';
+import Tweet from "./Tweet";
 //import Trends from './Trends';
 
 function Home() {
@@ -60,7 +60,9 @@ function Home() {
         </div>
 
         <div className={styles.centerElement}>
-          <div className={styles.tweetsContainer}>composant tweet</div>
+          <div className={styles.tweetsContainer}>
+            <Tweet />
+          </div>
           <div className={styles.lastTweetsContainer}>{tousTweets}</div>
         </div>
 
