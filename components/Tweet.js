@@ -1,22 +1,26 @@
 import styles from "../styles/Tweet.module.css";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 
 function Tweet(props) {
+  const dispatch = useDispatch();
   const [numberCharOfTweet, setNumberCharOfTweet] = useState([]);
 
   const handleTweetPost = () => {
-    fetch("http://localhost:3000/tweets/newTweet/:token", {
+    if (!user.token) {
+      return;
+    }
+
+    fetch(`http://localhost:3000/tweets/newTweet/${user.token}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({}),
+      body: JSON.stringify({ content: numberCharOfTweet }),
     })
       .then((response) => response.json())
       .then((data) => {
-        //         if (data.result) {
-        //           dispatch(login({ username: signUpUsername, token: data.token }));
-        //           setSignUpUsername("");
-        //           setSignUpPassword("");
-        //         }
+        if (data.result) {
+          dispatch();
+        }
       });
   };
 
@@ -24,7 +28,7 @@ function Tweet(props) {
     <>
       <div className={styles.row}>
         <input
-          maxlength="250"
+          maxLength="250"
           type="text"
           placeholder="Type your tweet"
           onChange={(e) => setNumberCharOfTweet(e.target.value)}
