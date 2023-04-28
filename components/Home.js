@@ -32,14 +32,16 @@ function Home() {
 
 
   // suppression d'un tweet par l'utilisateur
-  const [deleteTweet, setDeleteTweet] = useState([]);
-  useEffect(() => {
-    fetch(`http://localhost:3000/deleteTweet/${user.token}/${_id}`)
-      .then((response) => response.json())
-      .then((data) => {
-        setDeleteTweet(deleteTweet);
-      });
-  }, []);
+  //const [deleteTweet, setDeleteTweet] = useState([]);
+  // useEffect(() => {
+  //   fetch(`http://localhost:3000/deleteTweet/${user.token}/${_id}`)
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       setDeleteTweet(deleteTweet);
+  //     });
+  // }, []);
+
+  
 
   return (
     <div>
@@ -62,7 +64,7 @@ function Home() {
 
         <div className={styles.centerElement}>
           <div className={styles.tweetsContainer}>composant tweet</div>
-          <div className={styles.lastTweetsContainer}>composant lastTweets</div>
+          <div className={styles.lastTweetsContainer}>{tousTweets}</div>
         </div>
 
         <div className={styles.rightElement}>

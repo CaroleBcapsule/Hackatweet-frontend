@@ -1,5 +1,6 @@
 import styles from "../styles/SignIn.module.css";
 import Link from "next/link";
+import { login } from '../reducers/user';
 
 function SignIn() {
   return (
