@@ -30,6 +30,17 @@ function Home() {
     return <LastTweets key={i} {...data} />;
   });
 
+
+  // suppression d'un tweet par l'utilisateur
+  const [deleteTweet, setDeleteTweet] = useState([]);
+  useEffect(() => {
+    fetch(`http://localhost:3000/deleteTweet/${user.token}/${_id}`)
+      .then((response) => response.json())
+      .then((data) => {
+        setDeleteTweet(deleteTweet);
+      });
+  }, []);
+
   return (
     <div>
       <div className={styles.homeContainer}>

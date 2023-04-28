@@ -1,0 +1,13 @@
+.tweetContainer {
+    display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #b6b6b6;
+  padding: 15px;
+    border: 1px solid white;
+}
+
+.iconsContainer {
+    display: flex;
+    flex-direction: column;
+}
