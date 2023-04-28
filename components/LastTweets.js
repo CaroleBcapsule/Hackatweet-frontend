@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashCan, faHeart, faUserAstronaut} from '@fortawesome/free-solid-svg-icons';
-//import styles from '../styles/globals.css';
+import styles from '../styles/lastTweets.module.css';
 
 function LastTweets(props) {
 

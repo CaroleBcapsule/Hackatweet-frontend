@@ -1,7 +1,8 @@
-import styles from "../styles/Home.module.css";
+import styles from "../styles/home.module.css";
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserAstronaut, faTwitter } from "@fortawesome/free-solid-svg-icons";
+import Link from 'next/link';
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import LastTweets from "./LastTweets";
@@ -33,10 +34,13 @@ function Home() {
     <div>
     <div className={styles.homeContainer}>
       <div className={styles.leftElement}>
-        <FontAwesomeIcon icon={faTwitter} className={styles.iconTwitter}/>
+        <img className={styles.logoTwitter} src='tweeterLogo.png' alt='logo Twitter' />
+        <div className={styles.logoutContainer}>
         <FontAwesomeIcon icon={faUserAstronaut} className={styles.iconAstronaut}/>
-        <span>gauche</span>
+        <span>username</span>
         <button>logout</button>
+        </div>
+        
       </div>
 
       <div className={styles.centerElement}>
