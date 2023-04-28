@@ -1,24 +1,35 @@
 import styles from "../styles/Login.module.css";
 import React from "react";
+import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTwitter } from "@fortawesome/free-solid-svg-icons";
+import { Button, Modal } from "antd";
 import SignUp from "./SignUp";
 import SignIn from "./SignIn";
-import { Button, Modal } from "antd";
-import { useState } from "react";
 
 function Login() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const showModal = () => {
-    setIsModalOpen(true);
+  const [isModalOpenSignUp, setIsModalOpenSignUp] = useState(false);
+  const [isModalOpenSignIn, setIsModalOpenSignIn] = useState(false);
+  const showModalSignUp = () => {
+    setIsModalOpenSignUp(true);
   };
-  const handleOk = () => {
-    setIsModalOpen(false);
+  const handleOkSignUp = () => {
+    setIsModalOpenSignUp(false);
   };
-  const handleCancel = () => {
-    setIsModalOpen(false);
+  const handleCancelSignUp = () => {
+    setIsModalOpenSignUp(false);
   };
 
+  const showModalSigIn = () => {
+    setIsModalOpenSignIn(true);
+  };
+
+  const handleOkSignIn = () => {
+    setIsModalOpenSignIn(false);
+  };
+  const handleCancelSignIn = () => {
+    setIsModalOpenSignIn(false);
+  };
   return (
     <div>
       <main className={styles.main}>
@@ -34,35 +45,39 @@ function Login() {
             <Button
               className={styles.buttonSignUp}
               type="primary"
-              onClick={showModal}
+              onClick={showModalSignUp}
             >
-              Sign Up
+              Sign Up Now
             </Button>
             <Modal
-              title="Basic Modal"
-              open={isModalOpen}
-              onOk={handleOk}
-              onCancel={handleCancel}
+              title="Sign Up"
+              open={isModalOpenSignUp}
+              onOk={handleOkSignUp}
+              onCancel={handleCancelSignUp}
             >
               <SignUp />
             </Modal>
+          </div>
 
+          <div>
             <p>Already have an account ?</p>
-            <Button
-              className={styles.buttonSignIn}
-              type="primary"
-              onClick={showModal}
-            >
-              Sign in
-            </Button>
-            <Modal
-              title="Basic Modal"
-              open={isModalOpen}
-              onOk={handleOk}
-              onCancel={handleCancel}
-            >
-              <SignIn />
-            </Modal>
+            <div>
+              <Button
+                className={styles.buttonSignIn}
+                type="primary"
+                onClick={showModalSigIn}
+              >
+                Sign in
+              </Button>
+              <Modal
+                title="Sign In"
+                open={isModalOpenSignIn}
+                onOk={handleOkSignIn}
+                onCancel={handleCancelSignIn}
+              >
+                <SignIn />
+              </Modal>
+            </div>
           </div>
         </div>
       </main>
