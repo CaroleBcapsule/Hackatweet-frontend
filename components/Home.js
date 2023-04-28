@@ -8,19 +8,21 @@ import { useSelector, useDispatch } from "react-redux";
 import LastTweets from "./LastTweets";
 import Tweet from "./Tweet";
 //import Trends from './Trends';
+import { logout } from "../reducers/user";
 
 function Home() {
+  const dispatch = useDispatch();
   const user = useSelector((state) => state.user.value);
 
   //récupération des tweets de tous les utilisateurs
   const [allTweets, setAllTweets] = useState([]);
 
   useEffect(() => {
-    // if (!user.token) {
+    if (!user.token) {
       
-    //   return;
-    // }
-    fetch(`http://localhost:3000/tweets/tweets/${user.token}`)
+      return;
+    }
+    fetch(`http://localhost:3000/tweets/${user.token}`)
       .then((response) => response.json())
       .then(data => {
         console.log(data)
@@ -28,15 +30,13 @@ function Home() {
       });
   }, []);
 
- 
 
 
   const tousTweets = allTweets.map((data, i) => {
     return <LastTweets key={i} {...data} />;
   });
-
-  // suppression d'un tweet par l'utilisateur
-  //const [deleteTweet, setDeleteTweet] = useState([]);
+  //suppression d'un tweet par l'utilisateur
+  // const [deleteTweet, setDeleteTweet] = useState([]);
   // useEffect(() => {
   //   fetch(`http://localhost:3000/tweets/deleteTweet/${user.token}/${_id}`)
   //     .then((response) => response.json())
@@ -44,6 +44,10 @@ function Home() {
   //       setDeleteTweet(deleteTweet);
   //     });
   // }, []);
+
+  const handleLogout = () => {
+		dispatch(logout());
+	};
 
   return (
     <div>
@@ -57,7 +61,9 @@ function Home() {
           <div className={styles.logoutContainer}>
             <FontAwesomeIcon icon={faUserAstronaut} className={styles.iconAstronaut}/>
             <span>username</span>
-            <button>logout</button>
+            <button onClick={() => handleLogout()} className={styles.button}>
+            <Link href="./">logout</Link>
+            </button>
           </div>
         </div>
 
