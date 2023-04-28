@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  value: { content: null, username: null },
+  value: { content: null },
 };
 
 export const tweetSlice = createSlice({

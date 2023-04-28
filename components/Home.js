@@ -17,19 +17,16 @@ function Home() {
 
   useEffect(() => {
     // if (!user.token) {
-      
+
     //   return;
     // }
-    fetch(`http://localhost:3000/tweets/tweets/${user.token}`)
+    fetch(`http://localhost:3000/tweets/${user.token}`)
       .then((response) => response.json())
-      .then(data => {
-        console.log(data)
+      .then((data) => {
+        console.log(data);
         setAllTweets(data.allTweets);
       });
   }, []);
-
- 
-
 
   const tousTweets = allTweets.map((data, i) => {
     return <LastTweets key={i} {...data} />;
@@ -55,7 +52,10 @@ function Home() {
             alt="logo Twitter"
           />
           <div className={styles.logoutContainer}>
-            <FontAwesomeIcon icon={faUserAstronaut} className={styles.iconAstronaut}/>
+            <FontAwesomeIcon
+              icon={faUserAstronaut}
+              className={styles.iconAstronaut}
+            />
             <span>username</span>
             <button>logout</button>
           </div>

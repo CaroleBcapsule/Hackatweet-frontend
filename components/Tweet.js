@@ -1,9 +1,12 @@
 import styles from "../styles/Tweet.module.css";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { addTweetToDatabase } from "../reducers/tweet";
 
 function Tweet(props) {
   const dispatch = useDispatch();
+  const user = useSelector((state) => state.user.value);
+
   const [numberCharOfTweet, setNumberCharOfTweet] = useState([]);
 
   const handleTweetPost = () => {
@@ -19,7 +22,8 @@ function Tweet(props) {
       .then((response) => response.json())
       .then((data) => {
         if (data.result) {
-          dispatch();
+          dispatch(addTweetToDatabase(numberCharOfTweet));
+          setNumberCharOfTweet([]);
         }
       });
   };
