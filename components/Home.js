@@ -2,7 +2,7 @@ import styles from "../styles/home.module.css";
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserAstronaut, faTwitter } from "@fortawesome/free-solid-svg-icons";
-import Link from 'next/link';
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import LastTweets from "./LastTweets";
@@ -32,29 +32,33 @@ function Home() {
 
   return (
     <div>
-    <div className={styles.homeContainer}>
-      <div className={styles.leftElement}>
-        <img className={styles.logoTwitter} src='tweeterLogo.png' alt='logo Twitter' />
-        <div className={styles.logoutContainer}>
-        <FontAwesomeIcon icon={faUserAstronaut} className={styles.iconAstronaut}/>
-        <span>username</span>
-        <button>logout</button>
+      <div className={styles.homeContainer}>
+        <div className={styles.leftElement}>
+          <img
+            className={styles.logoTwitter}
+            src="tweeterLogo.png"
+            alt="logo Twitter"
+          />
+          <div className={styles.logoutContainer}>
+            <FontAwesomeIcon
+              icon={faUserAstronaut}
+              className={styles.iconAstronaut}
+            />
+            <span>username</span>
+            <button>logout</button>
+          </div>
         </div>
-        
-      </div>
 
-      <div className={styles.centerElement}>
-        <div className={styles.tweetsContainer}>composant tweet</div>
-        <div className={styles.lastTweetsContainer}>composant lastTweets</div>
-      </div>
+        <div className={styles.centerElement}>
+          <div className={styles.tweetsContainer}>composant tweet</div>
+          <div className={styles.lastTweetsContainer}>composant lastTweets</div>
+        </div>
 
-      <div className={styles.rightElement}>
-        <div className={styles.trendsContainer} >Composant trends</div>
+        <div className={styles.rightElement}>
+          <div className={styles.trendsContainer}>Composant trends</div>
+        </div>
       </div>
-      
-      </div>
-      </div>
-    
+    </div>
   );
 }
 
