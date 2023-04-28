@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashCan, faHeart, faUserAstronaut} from '@fortawesome/free-solid-svg-icons';
 import styles from '../styles/lastTweets.module.css';
-//import Moment from 'react-moment';
+import Moment from 'react-moment';
 
 function LastTweets(props) {
 
@@ -17,7 +17,7 @@ function LastTweets(props) {
     heartIconStyle = { 'color': '#e74c3c', 'cursor': 'pointer' };
   }
   
-//<Moment startOf={props.date} />
+//
   //startOf('hour').fromNow()
   return (
     <div>
@@ -25,7 +25,7 @@ function LastTweets(props) {
         <div className={styles.tweetInfo}>
         <span><FontAwesomeIcon icon={faUserAstronaut} className="avatar"/></span>
           <span className={styles.name}>{props.author}</span>
-          
+          <Moment startOf={props.date} />
           
         </div>
         <div className={styles.textContainer}>
