@@ -23,7 +23,7 @@ function Home() {
     fetch(`http://localhost:3000/tweets/tweets/${user.token}`)
       .then((response) => response.json())
       .then(data => {
-        console.log(data.allTweets)
+        console.log(data)
         setAllTweets(data.allTweets);
       });
   }, []);
