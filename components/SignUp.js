@@ -3,6 +3,8 @@ import Link from "next/link";
 import Home from "./Home";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { login } from "../reducers/user";
+
 function SignUp() {
   const dispatch = useDispatch();
   const [signUpUsername, setSignUpUsername] = useState("");
