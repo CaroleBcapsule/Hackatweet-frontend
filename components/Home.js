@@ -60,7 +60,7 @@ function Home() {
               icon={faUserAstronaut}
               className={styles.iconAstronaut}
             />
-            <span>username</span>
+            <span>{user.username}</span>
             <button onClick={() => handleLogout()} className={styles.button}>
               <Link href="./">logout</Link>
             </button>

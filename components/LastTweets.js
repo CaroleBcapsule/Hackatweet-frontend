@@ -17,6 +17,19 @@ function LastTweets(props) {
     heartIconStyle = { 'color': '#e74c3c', 'cursor': 'pointer' };
   }
   
+ //suppression d'un tweet par l'utilisateur
+//  const user = useSelector((state) => state.user.value);
+//  const [deleteTweet, setDeleteTweet] = useState([]);
+//  useEffect(() => {
+//    fetch(`http://localhost:3000/tweets/deleteTweet/${user.token}/${_id}`)
+//      .then((response) => response.json())
+//      .then((data) => {
+//        setDeleteTweet(deleteTweet);
+//      });
+//  }, []);
+
+
+
 //
   //startOf('hour').fromNow()
   return (
@@ -25,7 +38,7 @@ function LastTweets(props) {
         <div className={styles.tweetInfo}>
         <span><FontAwesomeIcon icon={faUserAstronaut} className="avatar"/></span>
           <span className={styles.name}>{props.author}</span>
-          <Moment startOf={props.date} />
+          <Moment fromNow={props.date} />
           
         </div>
         <div className={styles.textContainer}>
